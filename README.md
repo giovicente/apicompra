@@ -26,17 +26,18 @@ Efetua a compra de moeda estrangeira.
 **Response 201**
 ```json
 {
-    "id": 27,
+    "id": 29,
     "idCliente": 1,
     "tipoMoeda": "EUR",
-    "dataSolicitacao": "2020-08-27T14:25:25.848",
+    "dataSolicitacao": "2020-08-27T16:11:23.866",
     "quantidadeMoeda": 100.0,
     "taxaCambio": 0.18,
-    "valorCotacao": 6.5832,
-    "valorOperacao": 658.3199999999999,
+    "valorCotacao": 6.5857,
+    "valorOperacao": 658.57,
     "numeroAgenciaRetirada": "7057",
     "nomeAgenciaRetirada": "PERSONNALITE ANGELICA",
-    "enderecoAgenciaRetirada": "AV ANGELICA 1212 - STA CECILIA - SAO PAULO SP - CEP 01228-100"
+    "enderecoAgenciaRetirada": "AV ANGELICA 1212 - STA CECILIA - SAO PAULO SP - CEP 01228-100",
+    "idAgendamento": 2
 }
 ```
 
