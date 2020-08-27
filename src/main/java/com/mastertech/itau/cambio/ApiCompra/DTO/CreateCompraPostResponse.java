@@ -26,6 +26,8 @@ public class CreateCompraPostResponse {
 
     private String enderecoAgenciaRetirada;
 
+    private long idAgendamento;
+
     public CreateCompraPostResponse() { }
 
     public long getId() { return id; }
@@ -71,5 +73,9 @@ public class CreateCompraPostResponse {
     public String getEnderecoAgenciaRetirada() { return enderecoAgenciaRetirada; }
 
     public void setEnderecoAgenciaRetirada(String enderecoAgenciaRetirada) { this.enderecoAgenciaRetirada = enderecoAgenciaRetirada; }
+
+    public long getIdAgendamento() { return idAgendamento; }
+
+    public void setIdAgendamento(long idAgendamento) { this.idAgendamento = idAgendamento; }
 
 }

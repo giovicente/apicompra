@@ -6,7 +6,7 @@ import com.mastertech.itau.cambio.ApiCompra.models.Compra;
 
 public class MapperCreateCompraPostResponse {
 
-    public static CreateCompraPostResponse converterParaCreateCompraPostResponse(Compra compra, Agencia agencia) {
+    public static CreateCompraPostResponse converterParaCreateCompraPostResponse(Compra compra, Agencia agencia, long idAgendamento) {
         CreateCompraPostResponse createCompraPostResponse = new CreateCompraPostResponse();
 
         createCompraPostResponse.setId(compra.getId());
@@ -21,6 +21,8 @@ public class MapperCreateCompraPostResponse {
         createCompraPostResponse.setNumeroAgenciaRetirada(agencia.getId());
         createCompraPostResponse.setNomeAgenciaRetirada(agencia.getNome());
         createCompraPostResponse.setEnderecoAgenciaRetirada(agencia.getEndereco());
+
+        createCompraPostResponse.setIdAgendamento(idAgendamento);
 
         return createCompraPostResponse;
     }

@@ -2,9 +2,11 @@ package com.mastertech.itau.cambio.ApiCompra.controllers;
 
 import com.mastertech.itau.cambio.ApiCompra.DTO.CreateCompraPostRequest;
 import com.mastertech.itau.cambio.ApiCompra.DTO.CreateCompraPostResponse;
+import com.mastertech.itau.cambio.ApiCompra.mappers.MapperAgendamento;
 import com.mastertech.itau.cambio.ApiCompra.mappers.MapperCompra;
 import com.mastertech.itau.cambio.ApiCompra.mappers.MapperCreateCompraPostResponse;
 import com.mastertech.itau.cambio.ApiCompra.models.Agencia;
+import com.mastertech.itau.cambio.ApiCompra.models.Agendamento;
 import com.mastertech.itau.cambio.ApiCompra.models.Compra;
 import com.mastertech.itau.cambio.ApiCompra.services.CompraService;
 import javassist.NotFoundException;
@@ -25,13 +27,18 @@ public class CompraController {
     public ResponseEntity<CreateCompraPostResponse> postCompra
             (@RequestBody CreateCompraPostRequest createCompraPostRequest) throws NotFoundException {
 
+        Agencia agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
+
         Compra compra = MapperCompra.converterParaCompra(createCompraPostRequest);
         Compra compraObjeto = compraService.salvarCompra(compra);
 
-        Agencia agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
+        Agendamento agendamento = MapperAgendamento.converterParaAgendamento(createCompraPostRequest, compraObjeto.getId());
+        Agendamento agendamentoObjeto = compraService.salvarAgendamento(agendamento);
+
+        long idAgendamento = agendamentoObjeto.getId();
 
         CreateCompraPostResponse createCompraPostResponse
-                = MapperCreateCompraPostResponse.converterParaCreateCompraPostResponse(compraObjeto, agencia);
+                = MapperCreateCompraPostResponse.converterParaCreateCompraPostResponse(compraObjeto, agencia, idAgendamento);
 
         return ResponseEntity.status(201).body(createCompraPostResponse);
     }

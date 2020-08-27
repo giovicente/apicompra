@@ -1,8 +1,10 @@
 package com.mastertech.itau.cambio.ApiCompra.services;
 
 import com.mastertech.itau.cambio.ApiCompra.clients.AgenciaClient;
+import com.mastertech.itau.cambio.ApiCompra.clients.AgendamentoClient;
 import com.mastertech.itau.cambio.ApiCompra.clients.CotacaoClient;
 import com.mastertech.itau.cambio.ApiCompra.models.Agencia;
+import com.mastertech.itau.cambio.ApiCompra.models.Agendamento;
 import com.mastertech.itau.cambio.ApiCompra.models.Compra;
 import com.mastertech.itau.cambio.ApiCompra.models.Cotacao;
 import com.mastertech.itau.cambio.ApiCompra.repositories.CompraRepository;
@@ -26,6 +28,9 @@ public class CompraService {
 
     @Autowired
     private AgenciaClient agenciaClient;
+
+    @Autowired
+    private AgendamentoClient agendamentoClient;
 
     private static final double TAXA_CAMBIO = 0.18;
 
@@ -75,5 +80,7 @@ public class CompraService {
     }
 
     public Agencia obterAgenciaPorNumero(String numeroAgencia) { return agenciaClient.consultarAgencia(numeroAgencia); }
+
+    public Agendamento salvarAgendamento(Agendamento agendamento) { return agendamentoClient.criarAgendamentoEspecie(agendamento); }
 
 }
