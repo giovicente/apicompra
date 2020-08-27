@@ -19,45 +19,24 @@ Efetua a compra de moeda estrangeira.
     "idCliente": 1,
     "tipoMoeda": "EUR",
     "quantidadeMoeda": 100,
-    "cepCliente": "03043070"
+    "numeroAgencia": "7057"
 }
 ```
 
 **Response 201**
 ```json
 {
-    "compra": {
-        "id": 14,
-        "idCliente": 1,
-        "tipoMoeda": "EUR",
-        "dataSolicitacao": "2020-08-27T00:16:23.283",
-        "quantidadeMoeda": 100.0,
-        "taxaCambio": 0.18,
-        "valorCotacao": 6.6321,
-        "valorOperacao": 663.21
-    },
-    "agencias": [
-        {
-            "id": "0072",
-            "nome": "SP RUA PIRATININGA",
-            "endereco": "R PIRATININGA 870 - BRAS - SAO PAULO SP - CEP 03042-000"
-        },
-        {
-            "id": "0187",
-            "nome": "SP BRAS",
-            "endereco": "AV RANGEL PESTANA 1244 - BRAS - SAO PAULO SP - CEP 03002-000"
-        },
-        {
-            "id": "1666",
-            "nome": "SP LARGO CONCORDIA",
-            "endereco": "AV RANGEL PESTANA 2296 - BRAS - SAO PAULO SP - CEP 03002-000"
-        },
-        {
-            "id": "0175",
-            "nome": "SP RUA ORIENTE",
-            "endereco": "R MARIA MARCOLINA 591 - BRAS - SAO PAULO SP - CEP 03011-001"
-        }
-    ]
+    "id": 27,
+    "idCliente": 1,
+    "tipoMoeda": "EUR",
+    "dataSolicitacao": "2020-08-27T14:25:25.848",
+    "quantidadeMoeda": 100.0,
+    "taxaCambio": 0.18,
+    "valorCotacao": 6.5832,
+    "valorOperacao": 658.3199999999999,
+    "numeroAgenciaRetirada": "7057",
+    "nomeAgenciaRetirada": "PERSONNALITE ANGELICA",
+    "enderecoAgenciaRetirada": "AV ANGELICA 1212 - STA CECILIA - SAO PAULO SP - CEP 01228-100"
 }
 ```
 
