@@ -36,6 +36,7 @@ public class CompraService {
         compra.setValorOperacao(calcularValorOperacao(compra.getQuantidadeMoeda(), compra.getValorCotacao()));
 
         // TODO -> consumir API de débito da conta
+
         Compra compraObjeto = compraRepository.save(compra);
 
         return compraObjeto;
@@ -73,6 +74,6 @@ public class CompraService {
         throw new RuntimeException("Compra não encontrada.");
     }
 
-    public List<Agencia> obterAgenciasPorCep(String cep) { return agenciaClient.consultarAgencia(cep); }
+    public Agencia obterAgenciaPorNumero(String numeroAgencia) { return agenciaClient.consultarAgencia(numeroAgencia); }
 
 }

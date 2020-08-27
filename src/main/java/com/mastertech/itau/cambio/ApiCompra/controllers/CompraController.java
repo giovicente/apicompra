@@ -3,6 +3,7 @@ package com.mastertech.itau.cambio.ApiCompra.controllers;
 import com.mastertech.itau.cambio.ApiCompra.DTO.CreateCompraPostRequest;
 import com.mastertech.itau.cambio.ApiCompra.DTO.CreateCompraPostResponse;
 import com.mastertech.itau.cambio.ApiCompra.mappers.MapperCompra;
+import com.mastertech.itau.cambio.ApiCompra.mappers.MapperCreateCompraPostResponse;
 import com.mastertech.itau.cambio.ApiCompra.models.Agencia;
 import com.mastertech.itau.cambio.ApiCompra.models.Compra;
 import com.mastertech.itau.cambio.ApiCompra.services.CompraService;
@@ -13,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/cambio/compra")
 public class CompraController {
@@ -23,13 +22,16 @@ public class CompraController {
     private CompraService compraService;
 
     @PostMapping
-    public ResponseEntity<CreateCompraPostResponse> postCompra(@RequestBody CreateCompraPostRequest createCompraPostRequest) throws NotFoundException {
+    public ResponseEntity<CreateCompraPostResponse> postCompra
+            (@RequestBody CreateCompraPostRequest createCompraPostRequest) throws NotFoundException {
+
         Compra compra = MapperCompra.converterParaCompra(createCompraPostRequest);
         Compra compraObjeto = compraService.salvarCompra(compra);
 
-        List<Agencia> agencias = compraService.obterAgenciasPorCep(createCompraPostRequest.getCepCliente());
+        Agencia agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
 
-        CreateCompraPostResponse createCompraPostResponse = new CreateCompraPostResponse(compraObjeto, agencias);
+        CreateCompraPostResponse createCompraPostResponse
+                = MapperCreateCompraPostResponse.converterParaCreateCompraPostResponse(compraObjeto, agencia);
 
         return ResponseEntity.status(201).body(createCompraPostResponse);
     }

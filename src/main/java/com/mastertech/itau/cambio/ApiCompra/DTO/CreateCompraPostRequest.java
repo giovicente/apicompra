@@ -12,7 +12,7 @@ public class CreateCompraPostRequest {
 
     private double quantidadeMoeda;
 
-    private String cepCliente;
+    private String numeroAgencia;
 
     public CreateCompraPostRequest() { }
 
@@ -28,8 +28,8 @@ public class CreateCompraPostRequest {
 
     public void setQuantidadeMoeda(double quantidadeMoeda) { this.quantidadeMoeda = quantidadeMoeda; }
 
-    public String getCepCliente() { return cepCliente; }
+    public String getNumeroAgencia() { return numeroAgencia; }
 
-    public void setCepCliente(String cepCliente) { this.cepCliente = cepCliente; }
+    public void setNumeroAgencia(String numeroAgencia) { this.numeroAgencia = numeroAgencia; }
 
 }

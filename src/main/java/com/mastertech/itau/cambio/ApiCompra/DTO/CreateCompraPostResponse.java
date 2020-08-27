@@ -1,29 +1,75 @@
 package com.mastertech.itau.cambio.ApiCompra.DTO;
 
-import com.mastertech.itau.cambio.ApiCompra.models.Agencia;
-import com.mastertech.itau.cambio.ApiCompra.models.Compra;
-
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class CreateCompraPostResponse {
 
-    private Compra compra;
+    private long id;
 
-    private List<Agencia> agencias;
+    private long idCliente;
+
+    private String tipoMoeda;
+
+    private LocalDateTime dataSolicitacao;
+
+    private double quantidadeMoeda;
+
+    private double taxaCambio;
+
+    private double valorCotacao;
+
+    private double valorOperacao;
+
+    private String numeroAgenciaRetirada;
+
+    private String nomeAgenciaRetirada;
+
+    private String enderecoAgenciaRetirada;
 
     public CreateCompraPostResponse() { }
 
-    public CreateCompraPostResponse(Compra compra, List<Agencia> agencias) {
-        this.compra = compra;
-        this.agencias = agencias;
-    }
+    public long getId() { return id; }
 
-    public Compra getCompra() { return compra; }
+    public void setId(long id) { this.id = id; }
 
-    public void setCompra(Compra compra) { this.compra = compra; }
+    public long getIdCliente() { return idCliente; }
 
-    public List<Agencia> getAgencias() { return agencias; }
+    public void setIdCliente(long idCliente) { this.idCliente = idCliente; }
 
-    public void setAgencias(List<Agencia> agencias) { this.agencias = agencias; }
+    public String getTipoMoeda() { return tipoMoeda; }
+
+    public void setTipoMoeda(String tipoMoeda) { this.tipoMoeda = tipoMoeda; }
+
+    public LocalDateTime getDataSolicitacao() { return dataSolicitacao; }
+
+    public void setDataSolicitacao(LocalDateTime dataSolicitacao) { this.dataSolicitacao = dataSolicitacao; }
+
+    public double getQuantidadeMoeda() { return quantidadeMoeda; }
+
+    public void setQuantidadeMoeda(double quantidadeMoeda) { this.quantidadeMoeda = quantidadeMoeda; }
+
+    public double getTaxaCambio() { return taxaCambio; }
+
+    public void setTaxaCambio(double taxaCambio) { this.taxaCambio = taxaCambio; }
+
+    public double getValorCotacao() { return valorCotacao; }
+
+    public void setValorCotacao(double valorCotacao) { this.valorCotacao = valorCotacao; }
+
+    public double getValorOperacao() { return valorOperacao; }
+
+    public void setValorOperacao(double valorOperacao) { this.valorOperacao = valorOperacao; }
+
+    public String getNumeroAgenciaRetirada() { return numeroAgenciaRetirada; }
+
+    public void setNumeroAgenciaRetirada(String numeroAgenciaRetirada) { this.numeroAgenciaRetirada = numeroAgenciaRetirada; }
+
+    public String getNomeAgenciaRetirada() { return nomeAgenciaRetirada; }
+
+    public void setNomeAgenciaRetirada(String nomeAgenciaRetirada) { this.nomeAgenciaRetirada = nomeAgenciaRetirada; }
+
+    public String getEnderecoAgenciaRetirada() { return enderecoAgenciaRetirada; }
+
+    public void setEnderecoAgenciaRetirada(String enderecoAgenciaRetirada) { this.enderecoAgenciaRetirada = enderecoAgenciaRetirada; }
 
 }

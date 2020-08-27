@@ -1,7 +1,5 @@
 package com.mastertech.itau.cambio.ApiCompra.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 

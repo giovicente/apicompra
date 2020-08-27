@@ -3,7 +3,9 @@ package com.mastertech.itau.cambio.ApiCompra.models;
 public class Agencia {
 
     String id;
+
     String nome;
+
     String endereco;
 
     public Agencia() { }

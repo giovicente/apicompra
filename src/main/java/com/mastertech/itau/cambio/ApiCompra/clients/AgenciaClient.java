@@ -5,12 +5,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-
 @FeignClient(name = "agencia")
 public interface AgenciaClient {
 
-    @GetMapping("/porCep/{cep}")
-    List<Agencia> consultarAgencia(@PathVariable String cep);
+    @GetMapping("/porNumero/{numero}")
+    Agencia consultarAgencia(@PathVariable(name = "numero") String numero);
 
 }
