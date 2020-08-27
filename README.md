@@ -104,13 +104,13 @@ Consulta o detalhe de uma compra pelo id.
 **Response 200**
 ```json
 {
-    "id": 7,
-    "idCliente": 1,
-    "tipoMoeda": "EUR",
-    "dataSolicitacao": "2020-08-26T21:44:01",
-    "quantidadeMoeda": 100.0,
-    "taxaCambio": 0.18,
-    "valorCotacao": 6.6388,
-    "valorOperacao": 663.88
+  "id": 5,
+  "idCliente": 1,
+  "tipoMoeda": "EUR",
+  "dataSolicitacao": "2020-08-26T21:40:46",
+  "quantidadeMoeda": 100.0,
+  "taxaCambio": 0.18,
+  "valorCotacao": 6.6366,
+  "valorOperacao": 663.66
 }
 ```
