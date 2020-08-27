@@ -27,20 +27,16 @@ public class CompraController {
     }
 
     @GetMapping
-    public Iterable<Compra> getCompra(@RequestParam(name = "id_cliente", required = false) Long idCliente) {
-        if (idCliente != null){
-            return compraService.consultarListaComprasPorIdCliente(idCliente);
-        }
-
-        return compraService.consultarListaCompras();
+    public Iterable<Compra> getCompra(@RequestParam(name = "id_cliente", required = true) Long idCliente) {
+        return compraService.consultarListaComprasPorIdCliente(idCliente);
     }
 
-    @GetMapping("{/id_compra}")
+    @GetMapping("/{id_compra}")
     public Compra getCompraPorId(@PathVariable(name = "id_compra") long id) {
         try {
             Compra compraObjeto = compraService.consultarCompraPorId(id);
             return compraObjeto;
-        } catch (NotFoundException e) {
+        } catch (RuntimeException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }

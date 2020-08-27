@@ -51,27 +51,21 @@ public class CompraService {
         throw new RuntimeException("Tipo de Moeda inválido: " + tipoMoeda);
     }
 
-    private double calcularValorOperacao(double quantidadeMoeda, double valorCotacao) {
-        return quantidadeMoeda * valorCotacao;
-    }
-
-    public Iterable<Compra> consultarListaCompras() {
-        return compraRepository.findAll();
-    }
+    private double calcularValorOperacao(double quantidadeMoeda, double valorCotacao) { return quantidadeMoeda * valorCotacao; }
 
     public Iterable<Compra> consultarListaComprasPorIdCliente(long idCliente) {
         Iterable<Compra> compras = compraRepository.findAllByIdCliente(idCliente);
         return compras;
     }
 
-    public Compra consultarCompraPorId(long id) throws NotFoundException {
+    public Compra consultarCompraPorId(long id) {
         Optional<Compra> compraOptional = compraRepository.findById(id);
 
         if (compraOptional.isPresent()) {
             return compraOptional.get();
         }
 
-        throw new NotFoundException("Compra não encontrada.");
+        throw new RuntimeException("Compra não encontrada.");
     }
 
 }
