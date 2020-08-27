@@ -73,8 +73,6 @@ public class CompraService {
         throw new RuntimeException("Compra não encontrada.");
     }
 
-    public List<Agencia> obterAgenciasPorCep(String cep) {
-        return agenciaClient.consultarAgencia(cep);
-    }
+    public List<Agencia> obterAgenciasPorCep(String cep) { return agenciaClient.consultarAgencia(cep); }
 
 }
