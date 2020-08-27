@@ -6,7 +6,6 @@ pipeline {
         string(name: "IMAGE_DOCKER", defaultValue: "cambio-apicompra-image")
         string(name: "REGISTRY_URL", defaultValue: "registry-itau.mastertech.com.br")
         string(name: "MYIMAGE", defaultValue: "${params.REGISTRY_URL}/${params.IMAGE_DOCKER}")
-
     }
     post {
         success {
