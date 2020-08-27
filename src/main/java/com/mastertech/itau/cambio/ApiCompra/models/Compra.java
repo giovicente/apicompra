@@ -13,25 +13,18 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonProperty("id_cliente")
     private long idCliente;
 
-    @JsonProperty("tipo_moeda")
     private String tipoMoeda;
 
-    @JsonProperty("data_solicitacao")
     private LocalDateTime dataSolicitacao;
 
-    @JsonProperty("quantidade_moeda")
     private double quantidadeMoeda;
 
-    @JsonProperty("taxa_cambio")
     private double taxaCambio;
 
-    @JsonProperty("valor_cotacao")
     private double valorCotacao;
 
-    @JsonProperty("valor_total_operacao")
     private double valorOperacao;
 
     public Compra() { }
@@ -69,4 +62,5 @@ public class Compra {
     public void setValorOperacao(double valorOperacao) {
         this.valorOperacao = valorOperacao;
     }
+
 }

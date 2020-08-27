@@ -1,6 +1,8 @@
 package com.mastertech.itau.cambio.ApiCompra.services;
 
+import com.mastertech.itau.cambio.ApiCompra.clients.AgenciaClient;
 import com.mastertech.itau.cambio.ApiCompra.clients.CotacaoClient;
+import com.mastertech.itau.cambio.ApiCompra.models.Agencia;
 import com.mastertech.itau.cambio.ApiCompra.models.Compra;
 import com.mastertech.itau.cambio.ApiCompra.models.Cotacao;
 import com.mastertech.itau.cambio.ApiCompra.repositories.CompraRepository;
@@ -21,6 +23,9 @@ public class CompraService {
 
     @Autowired
     private CotacaoClient cotacaoClient;
+
+    @Autowired
+    private AgenciaClient agenciaClient;
 
     private static final double TAXA_CAMBIO = 0.18;
 
@@ -66,6 +71,10 @@ public class CompraService {
         }
 
         throw new RuntimeException("Compra não encontrada.");
+    }
+
+    public List<Agencia> obterAgenciasPorCep(String cep) {
+        return agenciaClient.consultarAgencia(cep);
     }
 
 }
