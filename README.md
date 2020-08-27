@@ -4,7 +4,7 @@
   - Esta API deve chamar a API de cotações para calcular o valor final da operação
   - Só serão aceitas compras de USD ou EUR
   - O Cep deve ser informado neste primeiro MVP, enquanto não é possível chamar a API de contas
-  - Ao finalizar a compra, serão retornadas opções de agências para retirada da moeda estrangeira em espécie
+  - Ao finalizar a compra, serão retornadas opções de agências mais próximas ao Cep do cliente para retirada da moeda estrangeira em espécie
   - A consulta de compras deve ser feita pelo id do cliente
 
 ___
