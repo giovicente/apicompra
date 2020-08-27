@@ -8,7 +8,7 @@
   - A consulta de compras deve ser feita pelo id do cliente
 
 ___
- ## Requisições de Porta:
+ ## Requisições de Compra:
 
  ### POST /cambio/compra
 Efetua a compra de moeda estrangeira.
