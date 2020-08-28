@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
 
 @RestController
 public class CompraController {
@@ -23,6 +24,7 @@ public class CompraController {
     private CompraService compraService;
 
     @PostMapping
+    @NewSpan("Cambio-APICompra-postCompra")
     public ResponseEntity<CreateCompraPostResponse> postCompra
             (@RequestBody CreateCompraPostRequest createCompraPostRequest) throws NotFoundException {
 
@@ -43,11 +45,13 @@ public class CompraController {
     }
 
     @GetMapping
+    @NewSpan("Cambio-APICompra-getCompra")
     public Iterable<Compra> getCompra(@RequestParam(name = "id_cliente", required = true) Long idCliente) {
         return compraService.consultarListaComprasPorIdCliente(idCliente);
     }
 
     @GetMapping("/{id_compra}")
+    @NewSpan("Cambio-APICompra-getCompraPorId")
     public Compra getCompraPorId(@PathVariable(name = "id_compra") long id) {
         try {
             Compra compraObjeto = compraService.consultarCompraPorId(id);
