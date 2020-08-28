@@ -43,7 +43,7 @@ Efetua a compra de moeda estrangeira.
 }
 ```
 
- ### GET /cambio/compra?id_cliente=1
+ ### GET /cambio/compra?id_cliente
 Devolve as operações de compra de um cliente.
 
 *Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
@@ -106,7 +106,7 @@ Devolve as operações de compra de um cliente.
  ### GET /cambio/compra/{id}
 Consulta o detalhe de uma compra pelo id.
 
-*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/30
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/5
 
 **Response 200**
 ```json
