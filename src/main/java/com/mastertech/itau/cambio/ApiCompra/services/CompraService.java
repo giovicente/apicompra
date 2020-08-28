@@ -93,7 +93,8 @@ public class CompraService {
             return compraOptional.get();
         }
 
-        logarCompra(compraOptional.get(), METODO_GET);
+
+        logarErro("Compra não encontrada. Id = " + id);
         throw new RuntimeException("Compra não encontrada.");
     }
 
@@ -105,6 +106,10 @@ public class CompraService {
         logRepository.log(Level.INFO, this.getClass(),
                 (method + "Moeda: " + compra.getTipoMoeda() + " - Valor Moeda Estrangeira: " + compra.getQuantidadeMoeda()
                         + " - Valor em BRL: " + compra.getValorOperacao()));
+    }
+
+    public void logarErro(String mensagem) {
+        logRepository.log(Level.INFO, this.getClass(), mensagem);
     }
 
 }
