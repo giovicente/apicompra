@@ -94,7 +94,7 @@ public class CompraService {
         }
 
 
-        logarErro("[GET] Compra não encontrada. Id = " + id, METODO_GET);
+        logarErro("Compra não encontrada. Id = " + id, METODO_GET);
         throw new RuntimeException("Compra não encontrada.");
     }
 
