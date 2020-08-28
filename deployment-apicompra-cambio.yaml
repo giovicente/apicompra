@@ -18,7 +18,7 @@ spec:
             - containerPort: 8080
       imagePullSecrets:
         - name: regcred
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cambio-apicompra
