@@ -40,6 +40,9 @@ public class CompraService {
     // Necessário ajuste para validar de onde obter essa informação de forma dinâmica
     private static final double TAXA_CAMBIO = 0.18;
 
+    private static final String METODO_POST = "[POST] ";
+    private static final String METODO_GET = "[GET] ";
+
     public Compra salvarCompra(Compra compra) throws NotFoundException {
         compra.setDataSolicitacao(LocalDateTime.now());
         compra.setTaxaCambio(TAXA_CAMBIO);
@@ -50,7 +53,7 @@ public class CompraService {
 
         Compra compraObjeto = compraRepository.save(compra);
 
-        logarCompra(compraObjeto);
+        logarCompra(compraObjeto, METODO_POST);
 
         return compraObjeto;
     }
@@ -76,7 +79,7 @@ public class CompraService {
         Iterable<Compra> compras = compraRepository.findAllByIdCliente(idCliente);
 
         compras.forEach(compra -> {
-            logarCompra(compra);
+            logarCompra(compra, METODO_GET);
         });
 
         return compras;
@@ -86,7 +89,7 @@ public class CompraService {
         Optional<Compra> compraOptional = compraRepository.findById(id);
 
         if (compraOptional.isPresent()) {
-            logarCompra(compraOptional.get());
+            logarCompra(compraOptional.get(), METODO_GET);
             return compraOptional.get();
         }
 
@@ -97,6 +100,6 @@ public class CompraService {
 
     public Agendamento salvarAgendamento(Agendamento agendamento) { return agendamentoClient.criarAgendamentoEspecie(agendamento); }
 
-    public void logarCompra(Compra compra) { logRepository.log(Level.INFO, this.getClass(), compra); }
+    public void logarCompra(Compra compra, String method) { logRepository.log(Level.INFO, this.getClass(), (method + compra)); }
 
 }
