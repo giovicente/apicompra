@@ -4,7 +4,7 @@ import com.mastertech.itau.cambio.ApiCompra.models.Cotacao;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "cotacao")
+@FeignClient(name = "cambio-apicotacao")
 public interface CotacaoClient {
 
     @GetMapping("/cambio/cotacao")

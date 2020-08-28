@@ -5,10 +5,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "agencia")
+@FeignClient(name = "cambio-agencia", url = "/cambio/agencia/porNumero/")
 public interface AgenciaClient {
 
-    @GetMapping("/porNumero/{numero}")
+    @GetMapping("/{numero}")
     Agencia consultarAgencia(@PathVariable(name = "numero") String numero);
 
 }
