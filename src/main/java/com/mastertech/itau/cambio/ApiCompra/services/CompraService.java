@@ -100,6 +100,10 @@ public class CompraService {
 
     public Agendamento salvarAgendamento(Agendamento agendamento) { return agendamentoClient.criarAgendamentoEspecie(agendamento); }
 
-    public void logarCompra(Compra compra, String method) { logRepository.log(Level.INFO, this.getClass(), (method + compra)); }
+    public void logarCompra(Compra compra, String method) {
+        logRepository.log(Level.INFO, this.getClass(),
+                (method + "Moeda: " + compra.getTipoMoeda() + " - Valor Moeda Estrangeira: " + compra.getQuantidadeMoeda()
+                        + " - Valor em BRL: " + compra.getValorOperacao()));
+    }
 
 }
