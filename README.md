@@ -12,7 +12,8 @@ ___
 
  ### POST /cambio/compra
 Efetua a compra de moeda estrangeira.
-Rota request: http://k8s-itau.mastertech.com.br/cambio/compra
+
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra
 
 **Request Body**
 ```json
@@ -43,8 +44,9 @@ Rota request: http://k8s-itau.mastertech.com.br/cambio/compra
 ```
 
  ### GET /cambio/compra?id_cliente=1
-Devolve as operações de compra de um cliente
-Rota request: http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
+Devolve as operações de compra de um cliente.
+
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
 
 **Response 200**
 ```json
@@ -103,7 +105,8 @@ Rota request: http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
 ```
  ### GET /cambio/compra/{id}
 Consulta o detalhe de uma compra pelo id.
-Rota request: http://k8s-itau.mastertech.com.br/cambio/compra/30
+
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/30
 
 **Response 200**
 ```json
