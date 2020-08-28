@@ -93,6 +93,7 @@ public class CompraService {
             return compraOptional.get();
         }
 
+        logarCompra(compraOptional.get(), METODO_GET);
         throw new RuntimeException("Compra não encontrada.");
     }
 
