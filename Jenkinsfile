@@ -63,7 +63,7 @@ pipeline {
                  stage('Kubernetes - Rollout - Deployment') {
                      steps {
                          sh "kubectl rollout restart deployment/cambio-apicompra-deployment"
-                         echo "Kubernetes Deployment realizado com sucesso!"
+                         echo "Kubernetes Deployment realizado com sucesso!!"
                      }
                  }
             }
