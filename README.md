@@ -155,7 +155,7 @@ O parâmetro id_cliente é obrigatório. Não é possível consultar a lista sem
 
 **Response 400 - id_cliente não informado**
 
-*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/
 
 ```json
 {
