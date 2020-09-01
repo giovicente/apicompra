@@ -28,7 +28,13 @@ public class CompraController {
     public ResponseEntity<CreateCompraPostResponse> postCompra
             (@RequestBody CreateCompraPostRequest createCompraPostRequest) throws NotFoundException {
 
-        Agencia agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
+        Agencia agencia = new Agencia();
+
+        try {
+            agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
+        } catch (RuntimeException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
 
         Compra compra = MapperCompra.converterParaCompra(createCompraPostRequest);
         Compra compraObjeto = compraService.salvarCompra(compra);
