@@ -33,7 +33,7 @@ public class CompraController {
         try {
             agencia = compraService.obterAgenciaPorNumero(createCompraPostRequest.getNumeroAgencia());
         } catch (RuntimeException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Agência indisponível.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A Agência " + createCompraPostRequest.getNumeroAgencia() + " não é uma agência válida.");
         }
 
         Compra compra = MapperCompra.converterParaCompra(createCompraPostRequest);

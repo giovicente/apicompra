@@ -43,8 +43,57 @@ Efetua a compra de moeda estrangeira.
 }
 ```
 
+**Response 400 - Tipo de Moeda Inválido**
+
+Retorno de uma tentativa de compra com moeda ainda não suportada pela aplicação. As moedas suportadas, conforme regra de negócio, são USD e EUR.
+
+Body de Request
+```json
+{
+    "idCliente": 3,
+    "tipoMoeda": "BTC",
+    "quantidadeMoeda": 500,
+    "numeroAgencia": "0933"
+}
+```
+
+Response
+```json
+{
+    "timestamp": "2020-09-01T00:22:16.369+0000",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Tipo de Moeda inválido: BTC",
+    "path": "/"
+}
+```
+**Response 400 - Agência inválida**
+
+Retorno de uma tentativa de compra na qual foi informada uma agência que não existe.
+```json
+{
+    "idCliente": 3,
+    "tipoMoeda": "USD",
+    "quantidadeMoeda": 500,
+    "numeroAgencia": "9999"
+}
+```
+
+Response
+```json
+{
+    "timestamp": "2020-09-01T00:26:31.446+0000",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "A agência 9999 não é uma agência válida.",
+    "path": "/"
+}
+```
+
  ### GET /cambio/compra?id_cliente
 Devolve as operações de compra de um cliente.
+
+O parâmetro id_cliente é obrigatório. Não é possível consultar a lista sem este parâmetro.
 
 *Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
 
@@ -103,7 +152,22 @@ Devolve as operações de compra de um cliente.
     }
 ]
 ```
- ### GET /cambio/compra/{id}
+
+**Response 400 - id_cliente não informado**
+
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra?id_cliente=1
+
+```json
+{
+    "timestamp": "2020-09-01T00:34:32.926+0000",
+    "status": 400,
+    "error": "Bad Request",
+    "message": "Required Long parameter 'id_cliente' is not present",
+    "path": "/"
+}
+```
+
+### GET /cambio/compra/{id}
 Consulta o detalhe de uma compra pelo id.
 
 *Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/5
@@ -119,5 +183,22 @@ Consulta o detalhe de uma compra pelo id.
   "taxaCambio": 0.18,
   "valorCotacao": 6.6366,
   "valorOperacao": 663.66
+}
+```
+
+**Response 404**
+
+Retorno de uma solicitação de um id de compra inexistente.
+
+*Rota request:* http://k8s-itau.mastertech.com.br/cambio/compra/999999999999999
+
+Response:
+```json
+{
+    "timestamp": "2020-09-01T00:38:05.907+0000",
+    "status": 404,
+    "error": "Not Found",
+    "message": "Compra não encontrada.",
+    "path": "/999999999999999"
 }
 ```
